@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 /**
- * 该类封装了连接和关闭数据库连接操作
+ * Klasa nawiazania i zamkniecia polaczenia z baz膮 danych
  * 
  * @author andieguo
  * 
@@ -25,9 +25,9 @@ public class DBConnection {
 		try {
 			fis = new FileInputStream("db.properties");
 			props.load(fis);
-			// 加载驱动
+			// 鍔犺浇椹卞姩
 			Class.forName(props.getProperty("DB_DRIVER_CLASS"));
-			// 创建一个连接
+			// Tworzenie polaczenia
 			con = DriverManager.getConnection(props.getProperty("DB_URL"), props.getProperty("DB_USERNAME"), props.getProperty("DB_PASSWORD"));
 		} catch (IOException | SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
@@ -35,7 +35,7 @@ public class DBConnection {
 		return con;
 	}
 
-	// 关闭ResultSet
+	// ResultSet
 	public static void closeResultSet(ResultSet rs) {
 		if (rs != null) {
 			try {
@@ -47,7 +47,7 @@ public class DBConnection {
 		}
 	}
 
-	// 关闭Statement
+	// Statement
 	public static void closeStatement(Statement stm) {
 		if (stm != null) {
 			try {
@@ -59,7 +59,7 @@ public class DBConnection {
 		}
 	}
 
-	// 关闭PreparedStatement
+	// PreparedStatement
 	public static void closePreparedStatement(PreparedStatement pstm) {
 		if (pstm != null) {
 			try {
@@ -71,7 +71,7 @@ public class DBConnection {
 		}
 	}
 
-	// 关闭Connection
+	// Connection
 	public static void closeConnection(Connection con) {
 		if (con != null) {
 			try {
